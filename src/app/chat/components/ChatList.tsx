@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Search, PenSquare, PanelLeftClose, SlidersHorizontal, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ChatItem from './ChatItem';
 import { Chat } from '../types/chat.types';
-import axios from 'axios';
+
 
 interface ChatListProps {
   chats: Chat[];
@@ -20,13 +20,6 @@ type Filter = (typeof FILTERS)[number];
 export default function ChatList({ chats, activeChatId, onSelectChat }: ChatListProps) {
 
 
-  useEffect(() => {
-    axios.get('http://localhost:4000/users').then((res) => {
-      console.log("users data")
-      console.log(res.data);
-    })
-    
-  }, []);
   const [query, setQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState<Filter>('Open');
   const [sort] = useState<'Newest' | 'Oldest'>('Newest');
