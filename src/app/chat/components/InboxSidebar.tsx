@@ -41,7 +41,7 @@ function QuickIcon({ type }: { type: string }) {
   return <CircleDot size={15} className="text-slate-500" />;
 }
 
-function TeamAvatar({ label }: { label: string }) {
+function TeamAvatar() {
   return (
     <div className="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center flex-shrink-0">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2">
@@ -167,7 +167,7 @@ export default function InboxSidebar() {
           {TEAMS.map(t => (
             <Row key={t.id} count={t.count}>
               <span className="flex items-center gap-2">
-                <TeamAvatar label={t.label} />
+                <TeamAvatar  />
                 {t.label}
               </span>
             </Row>

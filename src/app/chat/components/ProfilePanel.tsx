@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { ChevronDown, PanelRightClose, Plus, X } from 'lucide-react';
+import { ChevronDown, PanelRightClose, Plus } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { User, Chat } from '../types/chat.types';
 
@@ -12,8 +12,6 @@ interface ProfilePanelProps {
   allChats: Chat[];          // for "Other Chats" section
   activeChatId: string | null;
   onClose: () => void;
-  onBack: () => void;
-  isMobile?: boolean;
 }
 
 // ─── Per-user static extras (labels + notes) ─────────────────
@@ -105,9 +103,7 @@ export default function ProfilePanel({
   user,
   allChats,
   activeChatId,
-  onClose,
-  onBack,
-  isMobile,
+  onClose
 }: ProfilePanelProps) {
   const extras = user ? USER_EXTRAS[user.id] : null;
 

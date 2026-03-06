@@ -14,14 +14,13 @@ interface ChatListProps {
 }
 
 // Filter tabs
-const FILTERS = ['All', 'Open', 'Closed'] as const;
-type Filter = (typeof FILTERS)[number];
+type Filter = 'All' | 'Open' | 'Closed';
 
 export default function ChatList({ chats, activeChatId, onSelectChat }: ChatListProps) {
 
 
   const [query, setQuery] = useState('');
-  const [activeFilter, setActiveFilter] = useState<Filter>('Open');
+  const [activeFilter] = useState<Filter>('Open');
   const [sort] = useState<'Newest' | 'Oldest'>('Newest');
 
   const filtered = useMemo(() => {

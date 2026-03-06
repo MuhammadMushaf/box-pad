@@ -66,10 +66,10 @@ export default function ChatPage() {
     setMobileView('list');
   }, []);
 
-  const handleBackFromProfile = useCallback(() => {
-    setProfileOpen(false);
-    setMobileView('messages');
-  }, []);
+  // const handleBackFromProfile = useCallback(() => {
+  //   setProfileOpen(false);
+  //   setMobileView('messages');
+  // }, []);
 
   return (
     <div
@@ -168,8 +168,6 @@ export default function ChatPage() {
             allChats={chats}
             activeChatId={activeChatId}
             onClose={() => { setProfileOpen(false); setMobileView('messages'); }}
-            onBack={handleBackFromProfile}
-            isMobile={mobileView === 'profile'}
           />
         </div>
       </div>
